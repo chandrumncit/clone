@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>netflix</title>
+    <link rel="stylesheet" href="/sytle.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="overlay">
+            <header>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix_2015_logo" class="logo">
+                <button class="signin-btn">Sign In</button>
+            </header>
+            <div class="hero-content">
+                <h1>Unlimited Movies, Tv shows, and more</h1>
+                <h2>Ready to Watch? Enter your Email to Create or restart your membership.</h2>
+                <div class="email-signup">
+                    <input type="email" placeholder="Email address">
+                    <button>Get Started &gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const emailInput = document.querySelector('.email-signup input');
+  const getStartedBtn = document.querySelector('.email-signup button');
+
+  // Email validation function
+  function isValidEmail(email) {
+    // Simple regex pattern
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  // Click event handler
+  getStartedBtn.addEventListener('click', () => {
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      alert('Please enter your email address.');
+    } else if (!isValidEmail(email)) {
+      alert('Please enter a valid email address.');
+    } else {
+      alert(`Thanks for signing up with: ${email}`);
+      emailInput.value = ''; // Reset field
+    }
+  });
+
+  // Optional: Enter key support
+  emailInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      getStartedBtn.click();
+    }
+  });
+</script>
+</body>
+</html>
